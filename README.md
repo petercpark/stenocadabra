@@ -1,6 +1,6 @@
 # Stenocadabra
 
-Live display of steno strokes with translations.
+Live display of steno strokes with translations. Only works with Plover hid device.
 
 ## Vision
 
