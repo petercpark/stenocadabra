@@ -14,6 +14,7 @@ const keyNames = [
 ];
 
 const stenoMap = [
+  ["S-", "S-"],
   ["S1-", "S-"],
   ["T-", "T-"],
   ["K-", "K-"],

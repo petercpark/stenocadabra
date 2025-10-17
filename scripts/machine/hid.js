@@ -12,7 +12,11 @@ async function connectDevice() {
       },
     ];
     device = await navigator.hid.requestDevice({ filters });
-    if (device.length > 0) device = device[0];
+    if (device.length > 0) {
+      device = device[0];
+    } else {
+      return;
+    }
     await device.open();
     device.addEventListener("inputreport", deviceInputHandler);
     onDeviceConnect();

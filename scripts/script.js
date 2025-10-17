@@ -11,13 +11,12 @@ async function onPageLoad() {
 onPageLoad();
 
 async function onInput(inputReport) {
-  const { stenoStroke, pressedKeys, hexStr, binaryStr } = inputReport;
+  const { stenoStroke, pressedKeys } = inputReport;
   console.log(pressedKeys);
 
   mainText.textContent = stenoStroke;
 
   if (dictionary[stenoStroke]) {
-    console.log(dictionary[stenoStroke]);
     translation.textContent = dictionary[stenoStroke];
   } else {
     translation.textContent = "";
