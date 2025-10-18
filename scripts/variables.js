@@ -72,3 +72,5 @@ const stenoOrder = [
 ];
 
 const numberKeys = ["O", "S-", "T-", "P-", "H-", "A", "-F", "-P", "-L", "-T"];
+
+let keyMap = {};

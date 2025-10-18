@@ -9,15 +9,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 50vh;
 }
 
 #main-text {
-  font-size: 3rem;
+  font-size: 5rem;
 }
 
 #translation {
-  font-size: 1.5rem;
+  font-size: 3rem;
 }
 
 #connect {
@@ -35,4 +35,13 @@
 }
 #connect:hover {
   background-color: #f0f0f0;
+}
+
+#chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#steno-chart {
 }
