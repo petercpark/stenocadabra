@@ -51,7 +51,7 @@ function updateKeys(pressedKeys, keyMap) {
 }
 
 async function loadSVG() {
-  const response = await fetch("/assets/asterisk_layout.svg");
+  const response = await fetch("assets/asterisk_layout.svg");
   const svgText = await response.text();
   const parser = new DOMParser();
   const svgDoc = parser.parseFromString(svgText, "image/svg+xml");
