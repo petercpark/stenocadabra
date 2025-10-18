@@ -35,7 +35,7 @@ function pressedKeysToStenoStroke(pressedKeys) {
     output_text = output_text.replace(/-/g, "");
   } else {
     output_text = output_text.replace("--", "double_dash");
-    output_text = output_text.replace(/(?<=.)-(?=.)/g, "");
+    output_text = output_text.replace(/(?<=.)-/g, "");
     output_text = output_text.replace("double_dash", "-");
   }
 
