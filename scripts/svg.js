@@ -25,7 +25,7 @@ function parseSVG(svg) {
   });
 
   notPressedKeysGroups.forEach((group) => {
-    const keyId = group.id;
+    const keyId = group.id.replace("_2", "");
     if (!keyId) return;
     mapping[keyId] = mapping[keyId] || {};
     mapping[keyId].unpressed = group;
@@ -36,12 +36,15 @@ function parseSVG(svg) {
 
 /**
  * Update key visibility based on which keys are pressed.
- * @param {string[]} pressedKeys - e.g. ["ls", "rf", "rp"]
+ * @param {string[]} pressedKeys - e.g. ["S-", "T-", "P-"]
  * @param {Object} keyMap - result of parseSVG()
  */
 function updateKeys(pressedKeys, keyMap) {
   Object.entries(keyMap).forEach(([keyId, { pressed, unpressed }]) => {
-    const isPressed = pressedKeys.includes(keyId);
+    let isPressed =
+      pressedKeys.includes(keyId) ||
+      pressedKeys.includes(keyId.replace(/\d/g, ""));
+
     if (pressed) pressed.style.display = isPressed ? "block" : "none";
     if (unpressed) unpressed.style.display = isPressed ? "none" : "block";
   });
@@ -57,5 +60,5 @@ async function loadSVG() {
 
   //parse steno chart
   keyMap = parseSVG(svgElement);
-  console.log(keyMap);
+  updateKeys([], keyMap);
 }
