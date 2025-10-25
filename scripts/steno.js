@@ -42,6 +42,58 @@ function pressedKeysToStenoStroke(pressedKeys) {
   return output_text;
 }
 
+function stenoStrokeToPressedKeys(stroke) {
+    const vowels = "AO*EU-";
+    const startingVowels = "AO"
+    const endingVowels = "EU"
+
+    let pressedKeys = [];
+
+    //loo pover stroke
+    for (let i = 0; i < stroke.length; i++) {
+        let char = stroke[i];
+
+        if (char == "#") {
+            pressedKeys.push(char);
+            continue;
+        }
+
+        if (vowels.includes(char)) {
+            if (startingVowels.includes(char)) {
+                pressedKeys.push(char + "-");
+            } else if (endingVowels.includes(char)) {
+                pressedKeys.push("-" + char);
+            } else if (char != "-"){
+                pressedKeys.push(char);
+            }
+
+            continue;
+        }
+
+        // Check if a vowel occurs before the char at any point, if so push "-char", else push "char-"
+        let isEnder = false
+        for (let j = 0; j < i; j++) {
+            if (vowels.includes(stroke[j])) {
+                isEnder = true;
+                break;
+            }
+        }
+
+        if (isEnder) {
+            pressedKeys.push("-" +char);
+            continue;
+        } else {
+            pressedKeys.push(char + "-");
+        }
+
+    }
+
+    // Replase S- with S1-
+    pressedKeys = pressedKeys.map(v => v === "S-" ? "S1-" : v);
+
+    return pressedKeys;
+}
+
 async function getDictionary() {
   const response = await fetch(
     "https://raw.githubusercontent.com/openstenoproject/plover/refs/heads/main/plover/assets/main.json"
