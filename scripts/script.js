@@ -2,6 +2,9 @@ let dictionary;
 let mainText;
 let translation;
 
+let defaultStenoMode = "hid";
+let activeStenoMode = defaultStenoMode; // The active steno mode. Options are "hid", "javelin" or undefined
+
 async function onPageLoad() {
   //get elements
   mainText = document.getElementById("main-text");

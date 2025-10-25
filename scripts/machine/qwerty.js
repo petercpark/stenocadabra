@@ -63,6 +63,8 @@ function keyUpHandler(event) {
 }
 
 function qwertyInputHandler() {
+  if (activeStenoMode == "javelin") return;
+
   let pressedKeys = [];
   for (let key of qwertyKeysPressed) {
     if (qwertyMap[key]) pressedKeys.push(qwertyMap[key]);
