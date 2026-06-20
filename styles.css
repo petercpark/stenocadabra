@@ -33,6 +33,13 @@
   top: 0;
   left: 0;
 }
+
+#connect-icon {
+  opacity: 0.5;
+  width: 24px;
+  height: 24px;
+}
+
 #connect:hover {
   background-color: #f0f0f0;
 }
@@ -44,4 +51,25 @@
 }
 
 #steno-chart {
+}
+
+g {
+  cursor: pointer;
+}
+
+/* when phone screen horizontal */
+
+@media (max-height: 600px) {
+  .main-content {
+    height: 25vh;
+  }
+  #main-text {
+    font-size: 4rem;
+  }
+  #translation {
+    font-size: 2rem;
+  }
+  #connect {
+    display: none;
+  }
 }

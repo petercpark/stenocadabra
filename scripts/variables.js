@@ -75,4 +75,7 @@ const stenoOrder = [
 
 const numberKeys = ["O", "S-", "T-", "P-", "H-", "A", "-F", "-P", "-L", "-T"];
 
-let keyMap = {};
+let keymap = {};
+let global_pressed_keys = [];
+
+let background_color = "white";

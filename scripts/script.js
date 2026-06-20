@@ -10,6 +10,8 @@ async function onPageLoad() {
   //load assets
   dictionary = await getDictionary();
   await loadSVG();
+
+  document.body.style.backgroundColor = background_color;
 }
 onPageLoad();
 
@@ -21,7 +23,7 @@ async function onInput(inputReport) {
   mainText.textContent = stenoStroke;
 
   // chart
-  updateKeys(pressedKeys, keyMap);
+  updateKeys(pressedKeys, keymap);
 
   //translation
   if (dictionary[stenoStroke]) {
